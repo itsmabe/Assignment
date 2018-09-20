@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Item 1",
+    "price": "$100.00 (CAD)"
+  },
+  {
+    "title": "Item 2",
+    "price": "$125.00 (USD)"
+  },
+  {
+    "title": "Item 3",
+    "price": "$999.99 (CAD)"
+  },
+  {
+    "title": "Item 4",
+    "price": "$72.27 (USD)"
+  },
+  {
+    "title": "Item 5",
+    "price": "$123.45 (CAD)"
+  }
+]
