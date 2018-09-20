@@ -85,11 +85,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return super.onOptionsItemSelected(item);
     }
 
-
-    public DrawerLayout getDrawerLayout() {
-        return drawerLayout;
-    }
-
     @Override
     public void onBackStackChanged() {
         if (getSupportFragmentManager().getBackStackEntryCount() > 0)
@@ -97,5 +92,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         else
             getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu);
 
+    }
+
+    public DrawerLayout getDrawerLayout() {
+        return drawerLayout;
     }
 }
