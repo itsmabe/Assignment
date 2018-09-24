@@ -16,8 +16,8 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="6dp"
-        android:foreground="?android:attr/selectableItemBackground"
         android:elevation="10dp"
+        android:foreground="?android:attr/selectableItemBackground"
         app:cardCornerRadius="8dp">
 
         <LinearLayout
@@ -53,10 +53,19 @@
                     android:id="@+id/price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{item.price}"
+                    android:text="@{`$` + item.price}"
                     android:textColor="#000"
                     android:textSize="20sp"
                     android:textStyle="italic"/>
+
+                <TextView
+                    android:id="@+id/currency"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="@{`(`+ item.currency +`)`}"
+                    android:textColor="#000"
+                    android:textSize="20sp"/>
             </LinearLayout>
 
 

@@ -6,17 +6,14 @@ public class Item implements Serializable {
 
     private String title;
     private String price;
+    private String currency;
     private String description;
 
 
-    public Item(String title, String price) {
+    public Item(String title, String price, String currency, String description) {
         this.title = title;
         this.price = price;
-    }
-
-    public Item(String title, String price, String description) {
-        this.title = title;
-        this.price = price;
+        this.currency = currency;
         this.description = description;
     }
 
@@ -42,5 +39,13 @@ public class Item implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
     }
 }

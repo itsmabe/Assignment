@@ -5,12 +5,12 @@ import android.content.Context;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.json.JSONTokener;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import ibmassignment.me.com.ibm_assignment.R;
 import ibmassignment.me.com.ibmassignment.model.Item;
@@ -31,16 +31,22 @@ public class ItemViewModel extends ViewModel {
         try {
             BufferedReader jsonReader = new BufferedReader(new InputStreamReader(ctx.getResources().openRawResource(R.raw.response)));
             StringBuilder jsonBuilder = new StringBuilder();
-            for (String line = null; (line = jsonReader.readLine()) != null; ) {
-                jsonBuilder.append(line).append("\n");
-            }
+            for (String line; (line = jsonReader.readLine()) != null; )
+                jsonBuilder.append(line);
 
-            JSONTokener tokener = new JSONTokener(jsonBuilder.toString());
-            JSONArray jsonArray = new JSONArray(tokener);
+            JSONArray jsonArray = new JSONObject(jsonBuilder.toString()).getJSONArray("data");
+            String country = Locale.getDefault().getCountry();
+            String language = Locale.getDefault().getLanguage();
 
             for (int index = 0; index < jsonArray.length(); index++) {
                 JSONObject jsonObject = jsonArray.getJSONObject(index);
-                products.add(new Item(jsonObject.getString("title"), jsonObject.getString("price")));
+                try {
+                    products.add(new Item(jsonObject.getString("title"), jsonObject.getString("value"), jsonObject.getString("currency"),
+                            jsonObject.getJSONObject("description").getString(language + "-" + country)));
+                } catch (Exception e) {
+                    products.add(new Item(jsonObject.getString("title"), jsonObject.getString("value"), jsonObject.getString("currency"),
+                            jsonObject.getJSONObject("description").getString("en-CA")));
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
