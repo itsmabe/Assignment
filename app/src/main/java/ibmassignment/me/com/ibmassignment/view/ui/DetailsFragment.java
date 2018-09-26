@@ -18,7 +18,6 @@ import ibmassignment.me.com.ibmassignment.model.Item;
 
 public class DetailsFragment extends Fragment {
 
-    private Item item;
 
     public DetailsFragment() {
         super();
@@ -29,8 +28,7 @@ public class DetailsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         FragmentDetailsBinding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_details, container, false);
         View view = binding.getRoot();
-        item = (Item) getArguments().getSerializable("item");
-        binding.setDetail(item);
+        binding.setDetail((Item) getArguments().getSerializable("item"));
 
         setHasOptionsMenu(true);
         return view;
