@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name" translatable="false">Assignment</string>
-    <string name="item_description">This is a description of this item in English (en-CA)</string>
     <string name="drawer_open">Drawer Open</string>
     <string name="drawer_close">Drawer Closed</string>
 </resources>
