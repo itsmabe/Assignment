@@ -44,6 +44,8 @@ public class ItemViewModel extends ViewModel {
                     products.add(new Item(jsonObject.getString("title"), jsonObject.getString("value"), jsonObject.getString("currency"),
                             jsonObject.getJSONObject("description").getString(language + "-" + country)));
                 } catch (Exception e) {
+                    //
+                } finally {
                     products.add(new Item(jsonObject.getString("title"), jsonObject.getString("value"), jsonObject.getString("currency"),
                             jsonObject.getJSONObject("description").getString("en-CA")));
                 }
